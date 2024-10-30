@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+
+public class test {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the voting system!");
+        System.out.println("We have 3 people to vote from: Donald Trump, Kamala Harris, and Bernie Sanders.");
+        int trump = 0;
+        int harris = 0;
+        int sanders = 0;
+        for (int i = 0; i < 10; i++){
+            String vote = vote(scanner);
+            switch (vote) {
+                case "harris":
+                    harris++;
+                    break;
+                case "trump":
+                    trump++;
+                    break;
+                case "sanders":
+                    sanders++;
+                    break;
+            }
+        }  
+        if (sanders > trump && sanders > harris){
+            System.out.println("The winner is President Bernie Sanders with " + sanders + " votes.");
+        } else if (trump > sanders && trump > harris){
+            System.out.println("The winner is President Donald Trump with " + trump + " votes.");
+        } else if (harris > sanders && harris > trump){
+            System.out.println("The winner is President Kamala Harris with " + harris + " votes.");
+        }
+    }
+
+    public static String vote(Scanner scanner){
+            System.out.println("Please enter who you would like to vote for: (Trump, Kamala, Sanders)");
+            return scanner.nextLine().toLowerCase();
+
+    }
+
+}
